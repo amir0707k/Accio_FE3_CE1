@@ -138,7 +138,23 @@ h1 {
 .card:hover{
     transform: translateY(-20px) translateZ(10px);
 }
-
+.card:hover .more-details{
+    background-color: transparent;
+    box-shadow: 0 0 10px red;
+}
+a {
+  text-decoration: none;
+  font-size: 20px;
+  transition: all 0.5s ease-in-out;
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 10px;
+  color: rgba(255, 166, 0, 1);
+  margin-bottom: 4px;
+}
+a:hover {
+  color: #0f6da1;
+}
 
 #image-title {
   height: 250px;
@@ -161,16 +177,9 @@ h1 {
 .more-details {
   margin-top: -80px;
 }
-a {
-  text-decoration: none;
-  font-size: 20px;
-  transition: all 0.5s ease-in-out;
-  color: rgba(255, 166, 0, 1);
-}
-a:hover {
-  color: #0f6da1;
-}
+
 .details {
+  background-color: transparent;
   display: flex;
   align-items: center;
   position: relative;
