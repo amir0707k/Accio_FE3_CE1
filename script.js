@@ -20,6 +20,7 @@ searchButtonElement.addEventListener("click", () => {
     SEARCH_TERM = searchValue;
   }
   if (apikeyValue !== "" && searchValue.length >= 3) {
+    document.querySelector(".warning").innerText = "";
     fetchData();
   }
 });
@@ -40,18 +41,17 @@ async function fetchData() {
         warningContainer.className = "api-failed";
         warningContainer.innerText =
           "You have entered incorrect API \uD83D\uDE13";
-        document.querySelector(
-        ".cards-container"
-        ).style.display = "flex";
+        document.querySelector(".cards-container").style.display = "flex";
         document.querySelector(".spinner-container").style.display = "none";
-        document.querySelector(".cards-container").appendChild(warningContainer);
+        document
+          .querySelector(".cards-container")
+          .appendChild(warningContainer);
         console.log("executed!");
         return;
-      }else if (result.Error === "Movie not found!") {
+      } else if (result.Error === "Movie not found!") {
         const warningContainer = document.createElement("p");
         warningContainer.className = "api-failed";
-        warningContainer.innerText =
-          "Movie Not Found \uD83D\uDE13";
+        warningContainer.innerText = "Movie Not Found \uD83D\uDE13";
         document.querySelector(".cards-container").style.display = "flex";
         document.querySelector(".spinner-container").style.display = "none";
         document
@@ -59,31 +59,35 @@ async function fetchData() {
           .appendChild(warningContainer);
         console.log("executed!");
       }
-    } catch (error) {console.log(error)}
+    } catch (error) {
+      console.log(error);
+    }
     console.log(result);
     console.log(result.Search);
     result.Search.forEach((element) => {
       const card = document.createElement("div");
+
+      const imdbId = `https://www.imdb.com/title/${element.imdbID}`;
       card.className = "card";
-      if (element.Poster === "N/A"){
-        card.innerHTML = `<img src="https://amir0707k.github.io/Accio_FE3_CE1/poster-holder.jpg" id="image-title" alt=""> 
+      if (element.Poster === "N/A") {
+        card.innerHTML = `<img src="/poster-holder.jpg" id="image-title" alt=""> 
             <div class="details">
                 <p id="number">${(number = number + 1)}</p>
                 <p id="movie-name">
-                    ${element.Title}
+                    ${element.Title}, ${element.Year}
                 </p>
             </div>
+            <div><p><a href="${imdbId}">More Details</a></p></div>
                 `;
-      }else{
-                card.innerHTML = `<img src="${
-                  element.Poster
-                }" id="image-title" alt=""> 
+      } else {
+        card.innerHTML = `<img src="${element.Poster}" id="image-title" alt=""> 
             <div class="details">
                 <p id="number">${(number = number + 1)}</p>
                 <p id="movie-name">
-                    ${element.Title}
+                    ${element.Title}, ${element.Year}
                 </p>
             </div>
+           <a class="more-details" href="${imdbId}" target="_blank">More Details</a>
                 `;
       }
 
