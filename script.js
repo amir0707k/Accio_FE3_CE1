@@ -58,8 +58,6 @@ async function fetchData() {
           .querySelector(".cards-container")
           .appendChild(warningContainer);
         console.log("executed!");
-      }else{
-        alert('Some error Occurred');
       }
     } catch (error) {console.log(error)}
     console.log(result);
