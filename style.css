@@ -124,6 +124,7 @@ h1 {
   align-items: center;
   justify-content: center;
   margin-top: 50px;
+  perspective: 1000px;
 }
 .card {
   display: flex;
@@ -132,7 +133,12 @@ h1 {
   flex-direction: column;
   overflow: hidden;
   margin: 50px 20px 0px 10px;
+  transition: all 0.3s ease-in-out;
 }
+.card:hover{
+    transform: translateY(-20px) translateZ(50px);
+}
+
 
 #image-title {
   height: 250px;
