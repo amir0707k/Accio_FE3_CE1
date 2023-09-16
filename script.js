@@ -66,7 +66,7 @@ async function fetchData() {
       const card = document.createElement("div");
       card.className = "card";
       if (element.Poster === "N/A"){
-        card.innerHTML = `<img src="https://amir0707k.github.io/Accio_FE3_CE1/" id="image-title" alt=""> 
+        card.innerHTML = `<img src="https://amir0707k.github.io/Accio_FE3_CE1" id="image-title" alt=""> 
             <div class="details">
                 <p id="number">${(number = number + 1)}</p>
                 <p id="movie-name">
